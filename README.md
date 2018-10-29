@@ -11,10 +11,13 @@ Download or git clone the project to a local repository.
 open terminal and cd to CLI_CSV_Tool/src
 
 To compile, input 
+
   make
   
 To compile and run, input 
+
   make run filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
   
 To run after compile, input
+
   java cli_csv_tool.Main filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
