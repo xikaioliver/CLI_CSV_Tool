@@ -11,30 +11,25 @@ Package pandas in this code is designed to be independent library.
 Download or git clone the project to a local repository.
 open terminal and cd to CLI_CSV_Tool/src
 
-To compile, input: 
-
-  make
+To compile, input:<br/>
+>>>>make
   
-To compile and run, input: 
-
-  make run filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
+To compile and run, input: <br/>
+>>>>make run filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
   
-To run after compile, input:
+To run after compile, input:<br/>
+>>>>java cli_csv_tool.Main filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
 
-  java cli_csv_tool.Main filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
-
-You can also just run the tool without parameters.
-
-  java cli_csv_tool.Main
+You can also just run the tool without parameters.<br/>
+>>>>java cli_csv_tool.Main
   
-The tool will open and wait for further interactions.
-
+The tool will open and wait for further interactions.<br/>
 Some APIs are as follows:
 
-  readCSV filepath.csv
+>>>>readCSV filepath.csv
   
-  sort column_1 column_2 ...
+>>>>sort column_1 column_2 ...
   
-  print rows (this allows you to print any legitamate rows of the data in YAML format)
+>>>>print rows (this allows you to print any legitamate rows of the data in YAML format)
   
-  exit
+>>>>exit
