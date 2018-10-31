@@ -207,7 +207,7 @@ public class Main {
 				System.exit(0);
 			}		
 		}
-		else{
+		else {
 			log.log(Level.INFO, "Input: " + args.toString());
 			System.err.println("Invalid input: " + args.toString());
 			log.log(Level.SEVERE, "Invalid input: " + args.toString());
