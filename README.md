@@ -12,7 +12,7 @@ Download or git clone the project to a local repository.
 open terminal and cd to CLI_CSV_Tool/src
 
 To compile, input:<br/>
-  make
+　　make
   
 To compile and run, input: <br/>
 >>>>make run filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
