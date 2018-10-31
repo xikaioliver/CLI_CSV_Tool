@@ -24,10 +24,17 @@ To run after compile, input:
   java cli_csv_tool.Main filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ...
 
 You can also just run the tool without parameters.
+
   java cli_csv_tool.Main
+  
 The tool will open and wait for further interactions.
+
 Some APIs are as follows:
+
   readCSV filepath.csv
+  
   sort column_1 column_2 ...
+  
   print rows (this allows you to print any legitamate rows of the data in YAML format)
+  
   exit
