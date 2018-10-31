@@ -1,12 +1,11 @@
 package pandas;
-import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-//The class provides some API for DataFrame.
-
-public class DataFrame {
+class DataFrame implements DataFrameInterface {
 	
-	//DataaFrame is a Map<String column, ArrayList>. Each column is an ArrayList.
+	//DataaFrame is a Map<column, ArrayList>. Each column is an ArrayList of String.
 	//There are three indexes in the DataFrame. The index of the ArayList would always be in natural sequence, start from 0.
 	//User can specify one column to be index for use.
 	//The sortIndex shows the order of the rows. This is the one used in the solution.
@@ -14,76 +13,56 @@ public class DataFrame {
 	protected ArrayList<Integer> sortIndex = new ArrayList<Integer> ();
 	protected HashMap<String, ArrayList<String>> dataframe = new HashMap<String, ArrayList<String>>();
 	
-	//Not used in the solution any more. Still keep as an API.
-	//Force a column to change to another type. Every element in the same column must be the same type.
-	//So far, this DataFrame class just accept String and Double. To add other types, extend this code. 
-//	public void astype(String column, String type){
-//		if (type == "Double"){
-//			ArrayList<Double> newColumn = new ArrayList<Double>();
-//			int i = 0;
-//			for (i = 0; i < dataframe.get(column).size(); i++){
-//				try{
-//					double newItem = Double.parseDouble((String) dataframe.get(column).get(i));
-//					newColumn.add(newItem);
-//				} catch (NumberFormatException e) {
-//					e.printStackTrace();
-//					break;
-//				}
-//			}
-//			if (i == dataframe.get(column).size()) dataframe.put(column, newColumn);
-//		}
-//		if (type == "String"){
-//			ArrayList<String> newColumn = new ArrayList<String>();
-//			for (Object item : dataframe.get(column)){
-//				String newItem = item.toString();
-//				newColumn.add(newItem);
-//			}
-//			dataframe.put(column, newColumn);
-//		}
-//	}
-	
 	//print the first few lines of the DataFrame, specified by the argument 'rows'.
-	public void print(int rows){
-		for (int i = 0; i < rows; i++){
-			int index = sortIndex.get(i);
-			for (int j = 0; j < column.length; j++){
-				if (j == 0) System.out.println("- " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
-				else System.out.println("  " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
+	public boolean print(int rows) {
+		if (rows < 0 || rows > length()) return false;
+		else {
+			for (int i = 0; i < rows; i++) {
+				int index = sortIndex.get(i);
+				for (int j = 0; j < column.length; j++) {
+					if (j == 0) System.out.println("- " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
+					else System.out.println("  " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
+				}
 			}
+			return true;
 		}
 	}
 	
-	public boolean isInColumns(String column){
+	public boolean isInColumns(String column) {
+		if (column == null) return false;
 		for (int i = 0; i < this.column.length; i++)
 			if (this.column[i].equals(column)) return true;
 		return false;
 	}
 	
-	public int length(){
+	public int length() {
 		return sortIndex.size();
 	}
 	
 	//sort the DataFrame based on the specified columns.
 	//By default, in order to be comparable, the element in the column need to be numbers.
-	//If it is not a number or it is empty, then it should be sort to back.
+	//If it is not a number or it is empty (""), then it should be sort to the back.
 	//This sort algorithm is stable.
-	public void sort(String[] sortColumns){
+	public boolean sort(String[] sortColumns) {
+		for (int i = 0; i < sortColumns.length; i++) {
+			if (!isInColumns(sortColumns[i])) return false;
+		}
 		Collections.sort(sortIndex, new Comparator< Integer >() {
 			@Override
 			public int compare(Integer lhs, Integer rhs) {
 				Double left, right;
-				for (String column : sortColumns){
-					try{
+				for (String column : sortColumns ){
+					try {
 						left = Double.parseDouble(dataframe.get(column).get(lhs));
 					} catch (NumberFormatException e) {
-						try{
+						try {
 							right = Double.parseDouble(dataframe.get(column).get(rhs));
 						} catch (NumberFormatException e1) {
 							return -1;
 						}
 						return 1;
 					}
-					try{
+					try {
 						right = Double.parseDouble(dataframe.get(column).get(rhs));
 					} catch (NumberFormatException e) {
 						return -1;
@@ -94,5 +73,35 @@ public class DataFrame {
 				return 0;
 			}
 		});
+		return true;
+	}
+	
+	public boolean sort(String sortColumn) {
+		if (!isInColumns(sortColumn)) return false;
+		Collections.sort(sortIndex, new Comparator< Integer >() {
+			@Override
+			public int compare(Integer lhs, Integer rhs) {
+				Double left, right;
+				try {
+					left = Double.parseDouble(dataframe.get(sortColumn).get(lhs));
+				} catch (NumberFormatException e) {
+					try {
+						right = Double.parseDouble(dataframe.get(sortColumn).get(rhs));
+					} catch (NumberFormatException e1) {
+						return -1;
+					}
+					return 1;
+				}
+				try {
+					right = Double.parseDouble(dataframe.get(sortColumn).get(rhs));
+				} catch (NumberFormatException e) {
+					return -1;
+				}
+				if (left < right) return 1;
+				else if (left > right) return -1;
+				else return 0;
+			}
+		});
+		return true;
 	}
 }
