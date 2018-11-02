@@ -70,12 +70,12 @@ make test_DataFrame (test DataFrame) <br/>
 make test_Main (test Main UI class) <br/>
 
 To run tests under Windows: <br/>
-javac -cp .:lib/junit-4.10.jar Test/CSVReaderTestRunner.java <br/>
-java -cp .:lib/junit-4.10.jar Test.CSVReaderTestRunner <br/>
-javac -cp .:lib/junit-4.10.jar Test/DataFrameTestRunner.java <br/>
-java -cp .:lib/junit-4.10.jar Test.DataFrameTestRunner <br/>
-javac -cp .:lib/junit-4.10.jar Test/MainTestRunner.java <br/>
-java -cp .:lib/junit-4.10.jar Test.MainTestRunner <br/>
+javac -cp .;lib/junit-4.10.jar Test/CSVReaderTestRunner.java <br/>
+java -cp .;lib/junit-4.10.jar Test.CSVReaderTestRunner <br/>
+javac -cp .;lib/junit-4.10.jar Test/DataFrameTestRunner.java <br/>
+java -cp .;lib/junit-4.10.jar Test.DataFrameTestRunner <br/>
+javac -cp .;lib/junit-4.10.jar Test/MainTestRunner.java <br/>
+java -cp .;lib/junit-4.10.jar Test.MainTestRunner <br/>
 
 # Note
 You can still sort on "row" and/or "column" even if they are not data. There will be no warning or data corruption. <br/>
