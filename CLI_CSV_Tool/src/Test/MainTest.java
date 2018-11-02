@@ -42,12 +42,22 @@ public class MainTest extends TestCase {
 		System.arraycopy(sortColumns, 0, args, 1, sortColumns.length);
 		args[0] = validFilepath;
 		Main.main(args);
+		System.out.println("Test finished.");
+		
+		System.out.println("Testing the UI, reading moreColumnsThanItems.csv");
 		args[0] = validFilepath1;
 		Main.main(args);
+		System.out.println("Test finished.");
+		
+		System.out.println("Testing the UI, moreItemsThanColumns.csv");
 		args[0] = validFilepath2;
 		Main.main(args);
-//		args[0] = invalidFile;
-//		Main.main(args);
+		System.out.println("Test finished.");
+		
+		//Can only check one invalidfilepath one time, because system stops if there is a mistake.
+		//To test other invalid files, uncomment the corresponding section.
+		args[0] = invalidFile;
+		Main.main(args);
 //		args[0] = invalidFilepath1;
 //		Main.main(args);
 //		args[0] = invalidFilepath2;
