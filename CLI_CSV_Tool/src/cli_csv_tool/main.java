@@ -296,6 +296,7 @@ public class Main {
 								log.log(Level.INFO, "Input: " + line);
 								line = line.trim();
 								if (line.equals("Y") || line.equals("y")) {
+									System.out.println("The full result is: ");
 									execute(new String[] {"print", String.valueOf(i)});
 									break;
 								}
