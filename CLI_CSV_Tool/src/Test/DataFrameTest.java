@@ -64,13 +64,17 @@ public class DataFrameTest extends TestCase {
 		//sort on a few random columns.
 		String[] columns = new String[df.getColumns().length];
 		System.arraycopy(df.getColumns(), 0, columns, 0, df.getColumns().length);
-		int randomColumns = r.nextInt(columns.length);
+		int randomColumns = r.nextInt(columns.length-1) + 2;
 		String[] sortColumns = new String[randomColumns];
+		
+		int upper = columns.length - 1;
 		for (int i = 0; i < randomColumns; i++) {
-			int random = r.nextInt(columns.length);
+			int random = r.nextInt(upper + 1);
 			sortColumns[i] = columns[random];
-			columns[random] = (random == 0) ? columns[random+1] : columns[random-1];
+			columns[random] = columns[upper];
+			upper --;
 		}
+		
 		System.out.println("Testing df.sort(String[] sortColumns))");
 		System.out.println("The randomly chosen columns are:");
 		for (String item : sortColumns) System.out.print(item + " ");

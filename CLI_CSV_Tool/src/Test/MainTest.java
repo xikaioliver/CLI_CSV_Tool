@@ -18,17 +18,20 @@ public class MainTest extends TestCase {
 	
 	@Before
 	public void setUp() {
-		DataFrameInterface df = new CSVReader().readCSV("Test/data/input-data.csv", ",");
+		DataFrameInterface df = new CSVReader().readCSV("input-data.csv", ",");
 		Random r = new Random();
-		//sort on a few random columns.
+//		//sort on a few random columns.
 		String[] columns = new String[df.getColumns().length];
 		System.arraycopy(df.getColumns(), 0, columns, 0, df.getColumns().length);
-		int randomColumns = r.nextInt(columns.length);
+		int randomColumns = r.nextInt(columns.length-1) + 2;
 		sortColumns = new String[randomColumns];
+		
+		int upper = columns.length - 1;
 		for (int i = 0; i < randomColumns; i++) {
-			int random = r.nextInt(columns.length);
+			int random = r.nextInt(upper + 1);
 			sortColumns[i] = columns[random];
-			columns[random] = (random == 0) ? columns[random+1] : columns[random-1];
+			columns[random] = columns[upper];
+			upper --;
 		}
 		System.out.println("The randomly chosen columns are:");
 		for (String item : sortColumns) System.out.print(item + " ");
