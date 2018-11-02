@@ -57,6 +57,7 @@ public class Main {
 						System.err.println("Read successfully but there is some inconsistency in the CSV.");
 						log.log(Level.WARNING, "Data inconsistency in CSV file: " + args[1]);
 					}
+					sortColumns = new String[0];
 					return true;
 				}
 				else {
@@ -340,7 +341,7 @@ public class Main {
 		//Run with parameters but the number is invalid. Log and stop.
 		else {
 			String input ="";
-			for (String item : args) input = input + item;
+			for (String item : args) input = input + " " + item;
 			log.log(Level.INFO, "Input: " + input);
 			System.err.println("Invalid input format: " + input);
 			System.err.println("The correct parameter format is: filepath column_to_sort_1 column_to_sort_2 ...");
