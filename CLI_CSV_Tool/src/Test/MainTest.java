@@ -18,7 +18,7 @@ public class MainTest extends TestCase {
 	
 	@Before
 	public void setUp() {
-		DataFrameInterface df = new CSVReader().readCSV("input-data.csv", ",");
+		DataFrameInterface df = new CSVReader().readCSV(validFilepath, ",");
 		Random r = new Random();
 //		//sort on a few random columns.
 		String[] columns = new String[df.getColumns().length];
