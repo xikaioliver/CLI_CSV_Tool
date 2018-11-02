@@ -57,8 +57,8 @@ public class MainTest extends TestCase {
 		Main.main(args);
 		System.out.println("Test finished.");
 		
-		//Can only check one invalidfilepath one time, because system stops if there is a mistake.
-		//To test other invalid files, uncomment the corresponding section.
+//		Can only check one invalidfilepath one time, because system stops if there is a mistake.
+//		To test other invalid files, uncomment the corresponding section.
 		args[0] = invalidFile;
 		Main.main(args);
 //		args[0] = invalidFilepath1;
