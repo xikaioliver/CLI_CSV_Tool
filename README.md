@@ -29,7 +29,7 @@ To run after compile, input:<br/>
 You can also just run the tool without parameters.<br/>
 　　java cli_csv_tool.Main <br/>
 
-Note: If there are any spacings in a parameter, you need to put it in the "". Under this condition, please do not use make run. <br/>
+Note: If there are any spacings in a parameter, you need to surround it with the "". Otherwise, it will be recoginized as two columns instead of one. Under this condition, please do not use make run. <br/>
 For example, java cli_csv_tool.Main input-data.csv "GW_g__ FieldWB" EarsHvst_ears_plot <br/>
 Spacings befor, after or between parameters are not strictly limited. <br/>
   
