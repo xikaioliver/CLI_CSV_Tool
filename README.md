@@ -79,5 +79,5 @@ java -cp .:lib/junit-4.10.jar Test.MainTestRunner <br/>
 
 # Note
 You can still sort on "row" and/or "column" even if they are not data. There will be no warning or data corruption. <br/>
-You can only sort on the columns whose data can be parsed into numbers (doublee, single, integer). Other types are generally uncomparable. However, you will not get a mistake message if you try to sort on them. The tool will give up sorting on these columns and try to sort based on other parameters. <br/>
+You can only sort on the columns whose data can be parsed into numbers (double, single, integer). Other types are generally uncomparable. However, you will not get a mistake message if you try to sort on them. The tool will give up sorting on these columns and try to sort based on other parameters. <br/>
 Empty items and other unparsable items will be sorted to the back. <br/>
