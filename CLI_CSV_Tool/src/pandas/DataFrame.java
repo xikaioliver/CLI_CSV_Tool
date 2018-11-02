@@ -1,31 +1,37 @@
 package pandas;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 class DataFrame implements DataFrameInterface {
 	
 	//DataaFrame is a Map<column, ArrayList>. Each column is an ArrayList of String.
-	//There are three indexes in the DataFrame. The index of the ArayList would always be in natural sequence, start from 0.
-	//User can specify one column to be index for use.
-	//The sortIndex shows the order of the rows. This is the one used in the solution.
-	protected String column[];
+
+	protected String column[] = new String[0];
 	protected ArrayList<Integer> sortIndex = new ArrayList<Integer> ();
 	protected HashMap<String, ArrayList<String>> dataframe = new HashMap<String, ArrayList<String>>();
 	
 	//print the first few lines of the DataFrame, specified by the argument 'rows'.
-	public boolean print(int rows) {
-		if (rows < 0 || rows > length()) return false;
-		else {
-			for (int i = 0; i < rows; i++) {
-				int index = sortIndex.get(i);
-				for (int j = 0; j < column.length; j++) {
-					if (j == 0) System.out.println("- " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
-					else System.out.println("  " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
-				}
-			}
-			return true;
-		}
+//	public boolean print(int rows) {
+//		if (rows < 0 || rows > length()) return false;
+//		else {
+//			for (int i = 0; i < rows; i++) {
+//				int index = sortIndex.get(i);
+//				for (int j = 0; j < column.length; j++) {
+//					if (j == 0) System.out.println("- " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
+//					else System.out.println("  " + column[j] + ": " + dataframe.get(column[j]).get(index).toString());
+//				}
+//			}
+//			return true;
+//		}
+//	}
+	
+	public String[] getColumns() {
+		return column;
+	}
+	
+	public String get(int row, String column) {
+		if (row < 0 || row >= length()) return null;
+		else if (!isInColumns(column)) return null;
+		else return dataframe.get(column).get(sortIndex.get(row));
 	}
 	
 	public boolean isInColumns(String column) {
@@ -58,7 +64,7 @@ class DataFrame implements DataFrameInterface {
 						try {
 							right = Double.parseDouble(dataframe.get(column).get(rhs));
 						} catch (NumberFormatException e1) {
-							return -1;
+							continue;
 						}
 						return 1;
 					}
@@ -69,6 +75,7 @@ class DataFrame implements DataFrameInterface {
 					}
 					if (left < right) return 1;
 					else if (left > right) return -1;
+					else continue;
 				}
 				return 0;
 			}
@@ -88,7 +95,7 @@ class DataFrame implements DataFrameInterface {
 					try {
 						right = Double.parseDouble(dataframe.get(sortColumn).get(rhs));
 					} catch (NumberFormatException e1) {
-						return -1;
+						return 0;
 					}
 					return 1;
 				}
@@ -102,6 +109,14 @@ class DataFrame implements DataFrameInterface {
 				else return 0;
 			}
 		});
+		return true;
+	}
+	
+	public boolean equals (int row1, int row2, String[] columns) {
+		for (String column: columns) {
+			if (dataframe.get(column).get(sortIndex.get(row1)).equals(dataframe.get(column).get(sortIndex.get(row2)))) continue;
+			else return false;
+		}
 		return true;
 	}
 }
