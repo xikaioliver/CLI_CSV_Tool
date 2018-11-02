@@ -327,7 +327,7 @@ public class Main {
 			for (String item : args) input = input + item;
 			log.log(Level.INFO, "Input: " + input);
 			System.err.println("Invalid input: " + input);
-			System.err.println("You need at least 2 columns to sort on.");
+			System.err.println("You need at least 2 columns to sort.");
 			log.log(Level.SEVERE, "Invalid input: " + input);
 		}	
 	}
