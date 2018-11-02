@@ -54,6 +54,8 @@ The API to clean runtime files:
 The way to use this tool under Windows is generally the same as it is under Linux or Mac OS. However, makefile requires more work to deploy under Windows. Therefore, the easiest way is to compile and run directly. <br/>
 
 ## Compile <br/>
+First, you need to open terminal and cd to CLI_CSV_Tool/src. <br/>
+Then, <br/>
 javac cli_csv_tool\Main.java <br/>
 
 ## Run
