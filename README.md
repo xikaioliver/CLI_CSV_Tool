@@ -69,7 +69,7 @@ make test_CSVReader (test CSVReader) <br/>
 make test_DataFrame (test DataFrame) <br/>
 make test_Main (test Main UI class) <br/>
 
-To run tests under Windos: <br/>
+To run tests under Windows: <br/>
 javac -cp .:lib/junit-4.10.jar Test/CSVReaderTestRunner.java <br/>
 java -cp .:lib/junit-4.10.jar Test.CSVReaderTestRunner <br/>
 javac -cp .:lib/junit-4.10.jar Test/DataFrameTestRunner.java <br/>
