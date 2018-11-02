@@ -33,13 +33,7 @@ public class Main {
 	//Return value shows whether the execution is successful or not.
 	private static boolean execute(String[] args) {
 		
-		if (args.length == 0) {
-			System.err.println("No command is found.");
-			log.log(Level.SEVERE, "No command is found");
-			return false;
-		}
-		
-		else if (args[0].equals("readCSV")) {
+		if (args[0].equals("readCSV")) {
 			
 			//ReadCSV needs one and only one parameter: filepath.
 			if(args.length != 2) {
@@ -82,6 +76,25 @@ public class Main {
 				System.err.println("Need at least two columns to sort.");
 				log.log(Level.SEVERE, "Invalid number of arguments for sort.");
 				return false;
+			}
+			//Check whether there is a dataframe to sort.
+			else if (df == null) {
+				System.err.println("Sort before read a CSV.");
+				System.err.println("Please read a CSV first.");
+				log.log(Level.SEVERE, "Sort before read a CSV.");
+				return false;
+			}
+			//Check whether there are duplicate columns in the sort list.
+			else {
+				for (int i = 1; i < args.length; i++) {
+					for (int j = i+1; j < args.length; j++) {
+						if (args[i].equals(args[j])){
+							System.err.println("Duplicate columns in the sort list: " + args[i]);
+							log.log(Level.SEVERE, "Duplicate columns in the sort list: " + args[i]);
+							return false;
+						}
+					}
+				}
 			}
 			
 			String[] sortColumns = Arrays.copyOfRange(args, 1, args.length);
@@ -162,6 +175,11 @@ public class Main {
 		}
 		
 		else if (args[0].equals("exit")) {
+			if (args.length != 1) {
+				System.err.println("Invalid number of arguments for exit");
+				log.log(Level.SEVERE, "Invalid number of arguments for exit");
+				return false;
+			}
 			System.exit(0);
 			return true;
 		}
@@ -175,12 +193,7 @@ public class Main {
 	
 	//Overload.
 	public static boolean execute (String arg) {
-		if (arg == null) {
-			System.err.println("Null command is found.");
-			log.log(Level.SEVERE, "Null command is found.");
-			return false;
-		}
-		else if (arg.equals("print")) {
+		if (arg.equals("print")) {
 			if (df.length() < 3) {
 				System.err.println("Less than 3 rows. Print all rows.");
 				log.log(Level.WARNING, "Less than 3 rows. Print all rows.");
@@ -245,7 +258,9 @@ public class Main {
 					//There might be spacings in the columns' names. If so, surround the column name with ""
 					String[] arguments = line.split("(\\s+\"|\"\\s+|\"\\s+\"|\")");
 					if (arguments.length == 1) arguments = arguments[0].split("\\s+");
-					execute(arguments);
+					
+					if (arguments[0] != "" && arguments.length > 0) execute(arguments);
+					else continue;
 				}
 			} catch (IOException e) {
 				//Failure in reading inputs. Log and Stop.
@@ -327,9 +342,9 @@ public class Main {
 			String input ="";
 			for (String item : args) input = input + item;
 			log.log(Level.INFO, "Input: " + input);
-			System.err.println("Invalid input: " + input);
-			System.err.println("You need at least 2 columns to sort.");
-			log.log(Level.SEVERE, "Invalid input: " + input);
+			System.err.println("Invalid input format: " + input);
+			System.err.println("The correct parameter format is: filepath column_to_sort_1 column_to_sort_2 ...");
+			log.log(Level.SEVERE, "Invalid input format: " + input);
 		}	
 	}
 }
