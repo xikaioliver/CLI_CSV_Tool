@@ -46,9 +46,9 @@ Some APIs are as follows: <br/>
 ## Clean files
 The API to clean runtime files:
 
-  make clean (clean all class files) <br/>
-  make clean_log (clean logs) <br/>
-  make clean_all (clean all runtime files) <br/>
+　　make clean (clean all class files) <br/>
+　　make clean_log (clean logs) <br/>
+　　make clean_all (clean all runtime files) <br/>
   
 # Windows
 The way to use this tool under Windows is generally the same as it is under Linux or Mac OS. However, makefile requires more work to deploy under Windows. Therefore, the easiest way is to compile and run directly. <br/>
