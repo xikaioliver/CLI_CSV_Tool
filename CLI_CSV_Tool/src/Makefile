@@ -1,9 +1,5 @@
-PROGS=cli_csv_tool/Main.class
-
-all: $(PROGS)
-
-%.class: %.java
-	javac $*.java
+cli_csv_tool.Main.class: cli_csv_tool/Main.java
+	javac cli_csv_tool/Main.java
 
 .PHONY: run clean clean_log clean_all test_CSVReaer test_DataFrame test_Main
 run:
