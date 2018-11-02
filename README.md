@@ -56,12 +56,12 @@ The way to use this tool under Windows is generally the same as it is under Linu
 ## Compile <br/>
 First, you need to open terminal and cd to CLI_CSV_Tool/src. <br/>
 Then, <br/>
-javac cli_csv_tool\Main.java <br/>
+　　javac cli_csv_tool\Main.java <br/>
 
 ## Run
-java cli_csv_tool.Main filepath.csv column_to_sort_1 column_to_sort_2 column_to_sort_3 ... <br/>
+　　java cli_csv_tool.Main filepath.csv column_to_sort_1 column_to_sort_2 column_to_sort_3 ... <br/>
 or <br/>
-java cli_csv_tool.Main <br/>
+　　java cli_csv_tool.Main <br/>
 
 # Logs
 The tool generate log files daily, stored in the Log folder. <br/>
@@ -74,12 +74,12 @@ make test_DataFrame (test DataFrame) <br/>
 make test_Main (test Main UI class) <br/>
 
 To run tests under Windows: <br/>
-javac -cp .;lib/junit-4.10.jar Test/CSVReaderTestRunner.java <br/>
-java -cp .;lib/junit-4.10.jar Test.CSVReaderTestRunner <br/>
-javac -cp .;lib/junit-4.10.jar Test/DataFrameTestRunner.java <br/>
-java -cp .;lib/junit-4.10.jar Test.DataFrameTestRunner <br/>
-javac -cp .;lib/junit-4.10.jar Test/MainTestRunner.java <br/>
-java -cp .;lib/junit-4.10.jar Test.MainTestRunner <br/>
+　　javac -cp .;lib/junit-4.10.jar Test/CSVReaderTestRunner.java <br/>
+　　java -cp .;lib/junit-4.10.jar Test.CSVReaderTestRunner <br/>
+　　javac -cp .;lib/junit-4.10.jar Test/DataFrameTestRunner.java <br/>
+　　java -cp .;lib/junit-4.10.jar Test.DataFrameTestRunner <br/>
+　　javac -cp .;lib/junit-4.10.jar Test/MainTestRunner.java <br/>
+　　java -cp .;lib/junit-4.10.jar Test.MainTestRunner <br/>
 
 # Note
 You can still sort on "row" and/or "column" even if they are not data. There will be no warning or data corruption. <br/>
