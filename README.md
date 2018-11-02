@@ -10,7 +10,7 @@ Package pandas in this code is designed to be independent library. <br/>
 # Linux and Mac OS
 ## Deploy and Compile.
 Download or git clone the project to a local repository. <br/>
-open terminal and cd to CLI_CSV_Tool/src. <br/>
+Open terminal and cd to CLI_CSV_Tool/src. <br/>
 
 To compile, input:<br/>
 　　make <br/>
@@ -18,6 +18,8 @@ To compile, input:<br/>
 ## Run the Tool
 There are two modes provided in this tool. You can run with prameters, when the tool will automatically read a CSV file, sort on specified columns, print the top 3 results and stop. <br/>
 You can also run without parameter. In that case, the tool accepts a few function calls later and provides more freedom. <br/>
+
+First, you need to open terminal and cd to CLI_CSV_Tool/src. <br/>
 
 To compile and run, input: <br/>
 　　make run filepath column_to_sort_1 column_to_sort_2 column_to_sort_3 ... <br/>
