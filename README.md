@@ -7,14 +7,15 @@ Please note that it will be much easier to implement this by simply calling the 
 All codes implemented in this Java version is original. <br/>
 Package pandas in this code is designed to be independent library. <br/>
 
-# Deploy and Compile.
+# Linux and Mac OS
+## Deploy and Compile.
 Download or git clone the project to a local repository. <br/>
 open terminal and cd to CLI_CSV_Tool/src. <br/>
 
 To compile, input:<br/>
 　　make
 
-# Run the Tool
+## Run the Tool
 There are two modes provided in this tool. You either run with aprameters, when the tool will automatically read a CSV file, sort on specified columns, print the top 3 results and stop. <br/>
 You can also run without parameter. In that case, the tool accepts a few function calls later and provide more freedom.
 
