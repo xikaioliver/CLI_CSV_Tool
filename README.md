@@ -49,7 +49,7 @@ The API to clean runtime files:
   make clean_all (clean all runtime files) <br/>
   
 # Windows
-The way to use this tool under Windows is generally the same as it is under Linux or Mac OS. However, makefile requires more work to deply under Windows. Therefore, the easiest way is to compile and run directly. <br/>
+The way to use this tool under Windows is generally the same as it is under Linux or Mac OS. However, makefile requires more work to deploy under Windows. Therefore, the easiest way is to compile and run directly. <br/>
 
 ## Compile <br/>
 javac cli_csv_tool\Main.java <br/>
