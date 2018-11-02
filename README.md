@@ -16,7 +16,7 @@ To compile, input:<br/>
 　　make <br/>
 
 ## Run the Tool
-There are two modes provided in this tool. You either run with prameters, when the tool will automatically read a CSV file, sort on specified columns, print the top 3 results and stop. <br/>
+There are two modes provided in this tool. You can run with prameters, when the tool will automatically read a CSV file, sort on specified columns, print the top 3 results and stop. <br/>
 You can also run without parameter. In that case, the tool accepts a few function calls later and provide more freedom. <br/>
 
 To compile and run, input: <br/>
