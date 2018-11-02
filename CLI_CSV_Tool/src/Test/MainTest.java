@@ -30,7 +30,9 @@ public class MainTest extends TestCase {
 			sortColumns[i] = columns[random];
 			columns[random] = (random == 0) ? columns[random+1] : columns[random-1];
 		}
-		
+		System.out.println("The randomly chosen columns are:");
+		for (String item : sortColumns) System.out.print(item + " ");
+		System.out.println("");
 	}
 	
 	@Test
